@@ -1,0 +1,18 @@
+DECAN MOVIE V6 FIX
+
+Fixed:
+- Movie portal loading with direct Vercel catch-all TMDB route and frontend fallback.
+- Trending/New Releases/Top Rated tab values.
+- V3 advertisement holder uses the JavaScript /api/tmdb route.
+- Advertisement modal close/open behavior and Escape handling.
+- Player ad shield no longer covers the whole video for four seconds.
+- Theater/opening window layering and mobile sizing.
+- "Open stream in new tab" reports when the browser blocks a popup.
+- Trailer opening function no longer references undefined variables.
+- Music mute/unmute control and browser autoplay handling.
+- Service-worker cache version bumped and API requests are never cached.
+
+IMPORTANT:
+TMDB_ACCESS_TOKEN must be configured in the Vercel Environment Variables for the deployment.
+Do not upload .env or place TMDB secrets in frontend files.
+Music full tracks require authorized Supabase music_tracks data and correct Storage/RLS/CORS configuration.

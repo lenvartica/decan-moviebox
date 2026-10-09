@@ -1,0 +1,104 @@
+/* ============================================================
+   DECAN MOVIE — Watch Pro (additive layer)
+   Continue-watching rail + history management.
+   ============================================================ */
+
+#continue-rail { margin-bottom: 26px; }
+#continue-rail[hidden] { display: none; }
+.wpro-rail-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.wpro-rail-head h2 { font-size: 1.15rem; font-weight: 800; color: #fff; }
+.wpro-rail-head h2 i { color: var(--neon-cyan); margin-right: 8px; }
+.wpro-rail-head .wpro-viewall {
+  margin-left: auto; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  color: #dfe3ee; border-radius: 9px; padding: 8px 13px; font-size: 0.75rem; font-weight: 800; cursor: pointer;
+  min-height: 38px;
+}
+.wpro-rail-head .wpro-viewall:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+.wpro-track {
+  display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+}
+.wpro-card {
+  flex: 0 0 210px; width: 210px; scroll-snap-align: start;
+  background: var(--card-bg, #1a1d24); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 13px; overflow: hidden; position: relative;
+}
+.wpro-card .wpro-poster { position: relative; height: 118px; background: #111; overflow: hidden; cursor: pointer; }
+.wpro-card .wpro-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wpro-card .wpro-poster::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(5,7,12,.75) 100%);
+}
+.wpro-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2;
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4);
+  background: rgba(0,0,0,.55); color: #fff; cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px);
+}
+.wpro-play:hover { background: var(--neon-cyan); color: #04121a; border-color: var(--neon-cyan); }
+.wpro-x {
+  position: absolute; top: 6px; right: 6px; z-index: 3;
+  width: 30px; height: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.65); color: #cfd3de; cursor: pointer; font-size: 0.75rem;
+}
+.wpro-x:hover { color: #ff7d9c; border-color: #ff7d9c; }
+.wpro-info { padding: 9px 11px 11px; }
+.wpro-info b { display: block; font-size: 0.78rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wpro-info .wpro-sub { font-size: 0.66rem; color: #8b8f9e; margin-top: 2px; display: block; }
+.wpro-bar { height: 5px; border-radius: 99px; background: rgba(255,255,255,.12); margin-top: 8px; overflow: hidden; }
+.wpro-bar i { display: block; height: 100%; background: var(--neon-cyan); border-radius: 99px; }
+.wpro-continue {
+  width: 100%; margin-top: 9px; background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.3);
+  color: #b9f7ff; border-radius: 9px; padding: 9px 6px; font-size: 0.72rem; font-weight: 800; cursor: pointer;
+  min-height: 38px;
+}
+.wpro-continue:hover { background: rgba(0,229,255,.22); color: #fff; }
+
+/* manage bar inside library grids */
+.wpro-manage {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  margin-bottom: 16px; padding: 12px 14px; border-radius: 14px;
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+  font-size: 0.78rem; color: #9aa4b5;
+}
+.wpro-manage .spacer { flex: 1; }
+.wpro-manage button {
+  border-radius: 9px; padding: 9px 13px; font-weight: 800; cursor: pointer; min-height: 38px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); color: #dfe3ee; font-size: 0.75rem;
+}
+.wpro-manage button.danger { background: rgba(255,0,127,.1); border-color: rgba(255,0,127,.3); color: #ff5cab; }
+.wpro-manage button.danger:hover { background: rgba(255,0,127,.22); color: #fff; }
+.wpro-manage button:hover { border-color: var(--neon-cyan); }
+
+/* per-card footer buttons injected into continue grid cards */
+.wpro-cardbtns { display: flex; gap: 6px; margin-top: 9px; }
+.wpro-cardbtns button {
+  flex: 1; border-radius: 8px; padding: 8px 4px; font-size: 0.68rem; font-weight: 800; cursor: pointer; min-height: 36px;
+  background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.3); color: #b9f7ff;
+}
+.wpro-cardbtns button:hover { background: rgba(0,229,255,.22); color: #fff; }
+.wpro-cardbtns button.rm {
+  flex: 0 0 40px; background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); color: #8b8f9e;
+}
+.wpro-cardbtns button.rm:hover { color: #ff7d9c; border-color: #ff7d9c; }
+.wpro-remove-x {
+  position: absolute; top: 8px; right: 8px; z-index: 3;
+  width: 30px; height: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.65); color: #cfd3de; cursor: pointer;
+}
+.wpro-remove-x:hover { color: #ff7d9c; border-color: #ff7d9c; }
+.movie-card.wpro-decorated { padding-bottom: 2px; }
+
+.wpro-progress-line {
+  display: flex; align-items: center; gap: 7px; margin-top: 7px;
+  font-size: 0.66rem; color: #8b8f9e; font-weight: 700;
+}
+.wpro-progress-line .wpro-bar { flex: 1; margin-top: 0; }
+
+@media (max-width: 640px) {
+  .wpro-card { flex-basis: 172px; width: 172px; }
+  .wpro-card .wpro-poster { height: 100px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wpro-card, .wpro-play, .wpro-continue { transition: none; }
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.env
+
+Sitemap: https://decan-konnect-movie-three.vercel.app/sitemap.xml
