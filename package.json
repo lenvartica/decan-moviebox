@@ -1,0 +1,22 @@
+{
+  "name": "decan-movie-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Account-free Decan Movie Android app and web frontend",
+  "scripts": {
+    "build:android": "node scripts/build-android.js && cap sync android",
+    "android:open": "cap open android",
+    "android:debug": "npm run build:android && cd android && gradlew.bat assembleDebug",
+    "android:release": "npm run build:android && cd android && gradlew.bat bundleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "7.6.9",
+    "@capacitor/core": "7.6.9",
+    "@capacitor/file-transfer": "1.0.12",
+    "@capacitor/filesystem": "7.1.9"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.6.9",
+    "esbuild": "0.28.2"
+  }
+}

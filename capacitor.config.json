@@ -1,0 +1,11 @@
+{
+  "appId": "com.decanmovie.app",
+  "appName": "Decan Movie",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
