@@ -1,0 +1,26 @@
+:root{--bg-dark:#090b10;--card-bg:#11151d;--neon-cyan:#22d3ee;--neon-pink:#a78bfa;--neon-green:#34d399;--neon-yellow:#fbbf24;--text-main:#f3f6fb;--text-muted:#8f9aaa}
+/* DECAN MOVIE V3 premium polish + non-flashing ad surfaces + mobile navigation */
+:root{--decan-accent:#22d3ee;--decan-accent-2:#a78bfa;--decan-surface:#11151d;--decan-border:rgba(255,255,255,.09)}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.menu-link{transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease}
+.menu-link:hover{transform:translateX(2px)}
+.decan-v3-menu-divider{height:1px;background:rgba(255,255,255,.06);margin:7px 18px}
+.decan-v3-back{color:#dbe5ef!important;background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.12)!important}
+.decan-v3-back:hover{color:#fff!important;border-color:rgba(255,255,255,.28)!important;background:rgba(255,255,255,.1)!important}
+.decan-v3-providers{display:flex;gap:8px;overflow:auto;padding:2px 0 10px;scrollbar-width:none}
+.decan-v3-providers::-webkit-scrollbar{display:none}
+.decan-v3-provider{flex:0 0 auto;border:1px solid var(--decan-border);background:rgba(255,255,255,.045);color:#dbe2ee;border-radius:999px;padding:9px 13px;font-size:.76rem;font-weight:800;cursor:pointer}
+.decan-v3-provider:hover{border-color:rgba(34,211,238,.45);color:#fff;background:rgba(34,211,238,.08)}
+.decan-v3-insights{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 18px}
+.decan-v3-stat{padding:13px 14px;border:1px solid var(--decan-border);background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));border-radius:14px}
+.decan-v3-stat strong{display:block;font-size:1.05rem;color:#fff}.decan-v3-stat span{font-size:.7rem;color:#929aaa}
+.decan-ad-slot{margin:24px 0;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:linear-gradient(145deg,#10141c,#0d1118);box-shadow:0 12px 45px rgba(0,0,0,.18)}
+.decan-ad-label{font-size:.62rem;letter-spacing:1.6px;text-transform:uppercase;color:#7e8796;margin-bottom:8px}
+.decan-ad-card{display:grid;grid-template-columns:84px 1fr auto;gap:13px;align-items:center;cursor:pointer}
+.decan-ad-card img{width:84px;height:110px;object-fit:cover;border-radius:11px;background:#181c25}.decan-ad-copy h3{font-size:.98rem;margin:0 0 4px;color:#fff}.decan-ad-copy p{font-size:.75rem;color:#9ba4b3;margin:0;line-height:1.45}.decan-ad-cta{border:1px solid rgba(34,211,238,.3);background:rgba(34,211,238,.08);color:#bff8ff;border-radius:10px;padding:9px 11px;font-size:.72rem;font-weight:900;white-space:nowrap}
+.decan-ad-modal{position:fixed;inset:0;z-index:6100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.72);backdrop-filter:blur(9px)}
+.decan-ad-modal.open{display:flex}.decan-ad-window{width:min(620px,100%);border:1px solid rgba(255,255,255,.1);background:#11151d;border-radius:20px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.6)}
+.decan-ad-window img{width:100%;height:280px;object-fit:cover}.decan-ad-window-body{padding:18px}.decan-ad-window-body h2{margin-bottom:6px}.decan-ad-window-body p{color:#9ba4b3;line-height:1.55;font-size:.85rem}.decan-ad-actions{display:flex;gap:8px;margin-top:15px;flex-wrap:wrap}.decan-ad-actions button{border-radius:10px;padding:10px 13px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:#fff;font-weight:800;cursor:pointer}.decan-ad-actions .primary{background:#fff;color:#080a0d;border-color:#fff}
+.decan-interest{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:8px 11px;border-radius:10px;border:1px solid rgba(167,139,250,.28);background:rgba(167,139,250,.08);color:#eee8ff;font-size:.72rem;font-weight:800;cursor:pointer}.decan-interest.active{border-color:rgba(34,211,238,.35);background:rgba(34,211,238,.1);color:#d8fbff}
+@media(max-width:850px){.decan-v3-insights{grid-template-columns:repeat(2,minmax(0,1fr))}.decan-ad-card{grid-template-columns:70px 1fr}.decan-ad-card img{width:70px;height:94px}.decan-ad-cta{grid-column:2;justify-self:start}}
+@media(max-width:520px){.decan-v3-insights{grid-template-columns:1fr 1fr}.decan-ad-window img{height:220px}}

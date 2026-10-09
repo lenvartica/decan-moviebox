@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "blender-open-movies",
+  "name": "Blender Open Movies",
+  "publisher": "Blender Foundation",
+  "manifestUrl": "https://download.blender.org/demo/movies/catalog/approved.json",
+  "items": [
+    {
+      "id": "tears-of-steel",
+      "title": "Tears of Steel",
+      "year": 2012,
+      "mediaType": "movie",
+      "description": "A science-fiction short film produced by the Blender Institute as an open movie.",
+      "sourcePage": "https://mango.blender.org/",
+      "poster": "",
+      "streams": [
+        {
+          "url": "https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov",
+          "mimeType": "video/mp4",
+          "label": "720p HD"
+        }
+      ],
+      "download": {
+        "allowed": true,
+        "url": "https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov",
+        "fileExtension": "mov",
+        "estimatedBytes": 372178639
+      },
+      "rights": {
+        "status": "reviewed",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "evidenceUrl": "https://mango.blender.org/about/",
+        "attribution": "Tears of Steel (2012), Blender Foundation. CC BY 3.0. Keep the complete film credit roll when sharing or showing the full film.",
+        "territoryNote": "The publisher identifies this work as CC BY 3.0. Check applicable local law and source terms before redistribution in your region."
+      }
+    }
+  ]
+}

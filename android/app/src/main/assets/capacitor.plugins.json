@@ -1,0 +1,10 @@
+[
+	{
+		"pkg": "@capacitor/file-transfer",
+		"classpath": "com.capacitorjs.plugins.filetransfer.FileTransferPlugin"
+	},
+	{
+		"pkg": "@capacitor/filesystem",
+		"classpath": "com.capacitorjs.plugins.filesystem.FilesystemPlugin"
+	}
+]

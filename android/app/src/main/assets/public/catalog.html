@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Browse independently reviewed open movies and authorized streaming sources.">
+  <title>Open Movie Catalog — Decan Movie</title>
+  <link rel="icon" type="image/svg+xml" href="decan-atom-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="catalog.css">
+  <link rel="stylesheet" href="catalog-player.css">
+</head>
+<body>
+  <header class="catalog-header">
+    <a class="catalog-brand" href="index.html" aria-label="Decan Movie home">
+      <img src="decan-atom-logo.svg" alt=""><span>DECAN <b>MOVIE</b></span>
+    </a>
+    <a class="catalog-home" href="index.html"><i class="fa-solid fa-house"></i> Movie discovery</a>
+  </header>
+  <main class="catalog-main">
+    <section class="catalog-intro">
+      <span class="catalog-kicker">OPEN MOVIES · MOBILE READY</span>
+      <h1>Watch the <span>good stuff.</span></h1>
+      <p>Play reviewed, openly licensed films. Add data-only catalog manifests to bring in more titles—unreviewed entries link to their official source and cannot play or download here.</p>
+    </section>
+
+    <section class="catalog-tools" aria-label="Catalog controls">
+      <label class="catalog-search"><i class="fa-solid fa-magnifying-glass"></i><input id="catalog-search" type="search" placeholder="Search approved movies" autocomplete="off"></label>
+      <button id="addon-toggle" class="catalog-button secondary" type="button"><i class="fa-solid fa-plug"></i> Add manifest</button>
+      <button id="downloads-toggle" class="catalog-button secondary" type="button"><i class="fa-solid fa-download"></i> My downloads</button>
+    </section>
+
+    <form id="addon-form" class="addon-form" hidden>
+      <label for="addon-url">JSON manifest URL</label>
+      <div class="addon-row">
+        <input id="addon-url" type="url" inputmode="url" placeholder="https://publisher.example/catalog.json" required>
+        <button class="catalog-button primary" type="submit">Review source</button>
+      </div>
+      <p>Add only JSON data from sources whose item rights and media you have checked. Scripts and HTML add-ons are not supported. A manifest's rights fields are publisher claims, not independent legal verification.</p>
+      <div id="addon-status" class="catalog-status" role="status"></div>
+    </form>
+
+    <section class="rights-notice">
+      <i class="fa-solid fa-shield-halved"></i>
+      <p><strong>Rights-aware playback.</strong> In-app playback and Android offline downloads are enabled only for entries marked reviewed in a known reuse license. Other entries stay browse-only and link to the provider. Rights can differ by country.</p>
+    </section>
+
+    <section id="catalog-view">
+      <div class="catalog-section-heading"><div><span class="catalog-kicker">CURATED SOURCES</span><h2 id="catalog-heading">Approved titles</h2></div><span id="catalog-count" class="catalog-count"></span></div>
+      <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
+      <p id="catalog-empty" class="catalog-empty" hidden>No titles match this search.</p>
+    </section>
+  </main>
+  <footer class="catalog-footer">DECAN MOVIE <span>·</span> Playback and downloads require explicit source permission.</footer>
+  <script src="native-media-bridge.js" defer></script>
+  <script src="catalog.js" defer></script>
+  <script src="catalog-player.js" defer></script>
+</body>
+</html>
